@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Photography | Sok San Pov</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .gallery img {
+        transition: 0.35s;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-100">
+    <!-- Hero -->
+
+    <section
+      class="bg-gradient-to-r from-gray-900 via-black to-gray-800 text-white py-20"
+    >
+      <div class="max-w-6xl mx-auto px-6">
+        <h1 class="text-5xl font-bold mb-4">Photography Portfolio</h1>
+
+        <p class="text-lg text-gray-300 max-w-3xl">
+          A collection of event photography, portraits, school activities, hotel
+          events, community work, and creative storytelling through images.
+        </p>
+
+        <a
+          href="index.html"
+          class="inline-block mt-8 bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition"
+        >
+          ← Back to Portfolio
+        </a>
+      </div>
+    </section>
+
+    <!-- Statistics -->
+
+    <section class="py-12 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-6 text-center">
+          <div>
+            <h2 class="text-4xl font-bold text-blue-600">500+</h2>
+
+            <p class="text-gray-600 mt-2">Photos Taken</p>
+          </div>
+
+          <div>
+            <h2 class="text-4xl font-bold text-blue-600">50+</h2>
+
+            <p class="text-gray-600 mt-2">Events Covered</p>
+          </div>
+
+          <div>
+            <h2 class="text-4xl font-bold text-blue-600">5+</h2>
+
+            <p class="text-gray-600 mt-2">Years Experience</p>
+          </div>
+
+          <div>
+            <h2 class="text-4xl font-bold text-blue-600">100%</h2>
+
+            <p class="text-gray-600 mt-2">Edited in Lightroom</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+
+    <section class="py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="gallery grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <script>
+            for (let i = 1; i <= 70; i++) {
+              document.write(`
+
+<div>
+
+<img
+
+src="img/photography/IMG (${i}).jpg"
+
+alt="Photography ${i}"
+
+class="rounded-xl shadow-lg cursor-pointer w-full">
+
+
+</div>
+
+
+`);
+            }
+          </script>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+
+    <div
+      id="lightbox"
+      class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50"
+    >
+      <button id="close" class="absolute top-5 right-8 text-white text-5xl">
+        &times;
+      </button>
+
+      <img
+        id="lightbox-img"
+        class="max-w-6xl max-h-[90vh] rounded-xl shadow-2xl"
+      />
+    </div>
+
+    <!-- Footer -->
+
+    <footer class="bg-black text-white py-8">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <h3 class="text-xl font-bold">Sok San Pov</h3>
+
+        <p class="text-gray-400 mt-2">
+          Photography • Graphic Design • IT Support • Video Editing
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Lightbox
+
+      const lightbox = document.getElementById("lightbox");
+
+      const lightboxImg = document.getElementById("lightbox-img");
+
+      document.querySelectorAll(".gallery img").forEach((img) => {
+        img.onclick = () => {
+          lightbox.classList.remove("hidden");
+
+          lightbox.classList.add("flex");
+
+          lightboxImg.src = img.src;
+        };
+      });
+
+      document.getElementById("close").onclick = () => {
+        lightbox.classList.add("hidden");
+
+        lightbox.classList.remove("flex");
+      };
+
+      lightbox.onclick = (e) => {
+        if (e.target === lightbox) {
+          lightbox.classList.add("hidden");
+
+          lightbox.classList.remove("flex");
+        }
+      };
+    </script>
+  </body>
+</html>
